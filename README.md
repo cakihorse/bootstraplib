@@ -52,7 +52,7 @@ public class Example {
 
     String fileName = "echocraft.jar";
     String fileUrl = "https://github.com/cakihorse/echocraft/releases/download/V1.2/echocraft.jar";
-    String outPutPath = "C:\\Users\\PROPRIETAIRE\\Desktop" + "\\" + fileName; //Only modify "yourpath" !!
+    String outPutPath = "yourpath" + "\\" + fileName; //Only modify "yourpath" !!
 
     Frame.newWindow("ExampleWindow", 700, 720, true, false, true, "src/main/resources/bg.jpg");
     Download.start(fileUrl, outPutPath);
