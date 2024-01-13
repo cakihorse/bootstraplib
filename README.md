@@ -68,6 +68,21 @@ public class Example {
 ``implementation files('libs/bootstraplib-1.0-SNAPSHOT-all.jar')``
 Veillez à ce que la lib soit incluse dans le BuildPath de votre projet.
 
-## Avec MavenCentral() :
+## Avec JitPack :
+[![](https://jitpack.io/v/cakihorse/bootstraplib.svg)](https://jitpack.io/#cakihorse/bootstraplib)
 
-*Coming soon...*
+
+Ajoutez le à la fin de votre build.gradle :
+
+	dependencyResolutionManagement {
+		repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+		repositories {
+			mavenCentral()
+			maven { url 'https://jitpack.io' }
+		}
+	}
+Step 2. AAjoutez la dependance : 
+
+	dependencies {
+	        implementation 'com.github.cakihorse:bootstraplib:V.1.0'
+	}
