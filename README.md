@@ -63,7 +63,7 @@ public class Example {
 ```
 ## Comment L'importer dans son projet ?
 
-### Avec Gradle : 
+### En local : 
 
 ``implementation files('libs/bootstraplib-1.0-SNAPSHOT-all.jar')``
 Veillez à ce que la lib soit incluse dans le BuildPath de votre projet.
