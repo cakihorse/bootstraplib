@@ -1,0 +1,34 @@
+import requests
+
+class MinecraftAuth:
+    MINECRAFT_AUTH_URL = "https://api.minecraftservices.com/authentication/login_with_xbox"
+    
+    def __init__(self, xsts_token: str, user_hash: str):
+        self.xsts_token = xsts_token
+        self.user_hash = user_hash
+        self.minecraft_token = None
+    
+    def authenticate_with_minecraft(self):
+        """Authentifie l'utilisateur auprès des services Minecraft."""
+        payload = {
+            "identityToken": f"XBL3.0 x={self.user_hash};{self.xsts_token}"
+        }
+        
+        response = requests.post(self.MINECRAFT_AUTH_URL, json=payload)
+        if response.status_code != 200:
+            raise Exception(f"Failed to authenticate with Minecraft: {response.text}")
+        
+        data = response.json()
+        self.minecraft_token = data.get("access_token")
+        return self.minecraft_token
+
+# Exemple d'utilisation
+if __name__ == '__main__':
+    xsts_token = "TON_XSTS_TOKEN"
+    user_hash = "TON_USER_HASH"
+    minecraft_auth = MinecraftAuth(xsts_token, user_hash)
+    try:
+        minecraft_token = minecraft_auth.authenticate_with_minecraft()
+        print("Minecraft Access Token:", minecraft_token)
+    except Exception as e:
+        print(e)
